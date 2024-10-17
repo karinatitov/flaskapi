@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: flaskuser
+      POSTGRES_PASSWORD: flaskpassword
+      POSTGRES_DB: customerdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql
+    ports:
+      - "5432:5432"
+
+  flask:
+    build: .
+    environment:
+      - SQLALCHEMY_DATABASE_URI=postgresql://flaskuser:flaskpassword@db:5432/customerdb
+    ports:
+      - "5001:5000"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
