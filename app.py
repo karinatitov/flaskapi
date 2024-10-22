@@ -16,8 +16,14 @@ def init_db():
 @app.route('/customers', methods=['GET'])
 def get_customers():
     city = request.args.get('city')
+    # first_name = request.args.get('first_name')
+    # last_name = request.args.get('last_name')
     if city:
         customers = Customer.query.filter_by(city=city).all()
+    # if first_name:
+    #     query = query.filter_by(first_name=first_name)
+    # if last_name:
+    #     query = query.filter_by(last_name=last_name)
     else:
         customers = Customer.query.all()
     return jsonify([customer.to_dict() for customer in customers]), 200
