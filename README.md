@@ -216,7 +216,7 @@ if __name__ == '__main__':
 To run the tests:
 
 ```
-python -m unittest test_flask_api.py
+python -m unittest tests/tests.py
 ```
 
 ## 🏗 Built With

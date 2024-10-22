@@ -2,3 +2,4 @@ Flask==2.3.2
 Flask-SQLAlchemy==2.5.1  # Older version that is compatible with SQLAlchemy 1.x
 SQLAlchemy==1.4.46  # Downgrade to SQLAlchemy 1.x
 psycopg2-binary==2.9.3
+requests==2.32.3

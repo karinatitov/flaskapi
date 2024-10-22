@@ -1,3 +1,5 @@
+# Defines the database models (Customer model).
+
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()

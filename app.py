@@ -61,6 +61,12 @@ def not_found(error):
 def bad_request(error):
     return jsonify({"error": str(error)}), 400
 
+# 400 Bad Request is to be used in cases where the request was successfully
+# received by the application, and the application determined that something
+# was wrong about the request: Either the endpoint doesn't exist, or the format
+# or nature of request parameters/variables was incorrect/malformed in some way,
+# rendering the request invalid.
+
 if __name__ == '__main__':
     init_db()  # Call this function to create tables when the app starts
     app.run(host='0.0.0.0', port=5000)
